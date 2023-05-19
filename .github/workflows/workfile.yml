@@ -27,3 +27,13 @@ jobs:
       
     - name: Executar Java
       run: java -cp ./out/production/SimpleRandomProject Testes
+      
+    - name: Docker Build & Push Action
+      uses: mr-smithers-excellent/docker-build-push@v6.2
+      with:
+        image: iegarthurbarcala/ci_action
+        tags: v1.${{ github.run_number }}, latest
+        registry: docker.io
+        dockerfile: dockerfile
+        username: ${{ secrets.DOCKER_LOGIN }}
+        password: ${{ secrets.DOCKER_PASSWD }}
