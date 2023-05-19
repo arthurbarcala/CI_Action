@@ -23,7 +23,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Compilar Java
-      run: javac -cp ./src Testes.java
+      run: javac -cp ./src ./src/Testes.java
       
     - name: Executar Java
       run: java -cp ./out/production/SimpleRandomProject Testes
